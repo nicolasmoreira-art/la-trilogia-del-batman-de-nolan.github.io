@@ -1,0 +1,864 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+
+
+* { margin: 0; padding: 0; box-sizing: border-box;
+}
+
+
+body { 
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  background-color: #181717; 
+}
+
+.texto {
+  padding-left: 20px;  
+  padding-right: 20px;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6) 0%,
+        rgba(0,0,0,0.8) 100%
+    );
+    z-index: 1;
+}
+
+.banner-texto {
+    position: absolute;
+    top: 70%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFD700; 
+    z-index: 2; 
+}
+
+.banner-texto .titulo {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 3px 3px 10px black;
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+.banner-texto .subtitulo {
+    font-size: 35px;
+    font-weight: 400;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 2px 2px 6px black;
+    margin-top: 2px;
+    letter-spacing: 1px;
+}
+
+
+.logo-contenedor {
+    display: flex;
+    justify-content: flex-start; /* logo a la izquierda */
+    padding-left: 80px;          /* separación del borde izquierdo */
+    margin-top: 20px;
+}
+
+
+.logo {
+    width: 200px;
+    height: 100px; 
+}
+
+.navegacion {
+    display: flex;
+    flex-direction: column; /* enlaces verticales */
+    align-items: center;    /* centrado horizontal */
+    margin: 20px auto;      /* espacio superior e inferior */
+    gap: 10px;              /* separación entre enlaces */
+}
+
+
+.navegacion a {
+    color: #FFD700;       
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgb(19, 18, 18);
+    transition: color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.navegacion a:hover {
+    color: white;
+}
+
+
+#Batman { 
+padding-top: 150px; 
+} 
+
+#Batman h2 { 
+color: #FFD700; 
+font-size: 35px; 
+}
+
+
+#Batman p { 
+margin-top: 30px; 
+color: white; 
+font-size: 20px; 
+}
+
+.pelicula .info {
+  display: none;
+  margin-top: 10px;
+   display: flex;
+  justify-content: center;
+  gap: 20px;        /* espacio entre elementos dentro de .info */
+  flex-wrap: wrap;  /* permite que se acomoden en varias filas */
+  text-align: center; /* opcional, por si hay texto */
+}
+
+details summary {
+  cursor: pointer;
+  padding: 8px 15px;
+  background-color: #FFD700;
+  color: black;
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 15px; /* agrega espacio respecto al contenido */
+  text-align: center;  /* centra el texto del botón */
+}
+
+details[open] summary { 
+background-color: #FFA500; /* cambia de color al abrir */ }
+
+.pelicula details:not([open]) .info {
+  display: none;
+}
+
+
+/* --- Sección Peliculas --- */
+#Peliculas .peliculas {   
+display: flex; /* activa Flexbox */ 
+justify-content: center; /* centra las imágenes horizontalmente */ 
+gap: 40px; /* espacio entre las imágenes */ 
+flex-wrap: wrap; /* permite que bajen a otra línea si la pantalla es pequeña */ 
+align-items: flex-start;
+}
+
+#Peliculas .pelicula img { 
+margin-top: 65px; 
+max-width: 200px; /* tamaño máximo de las imágenes */ 
+height: auto; /* mantiene proporción */ 
+border-radius: 8px; /* opcional, bordes redondeados */ 
+}
+
+.titulo-nolan {
+  padding-top: 60px; 
+  color: #FFD700 !important;  /* fuerza el color amarillo */
+  font-weight: bold; 
+  text-decoration: none; 
+  font-family: 'Bebas Neue', sans-serif; 
+  font-size: 45px; 
+  text-align: center;
+}
+
+
+/* JOKER */
+#joker-btn {
+  position: absolute;   /* lo sacás del flujo normal */
+  top: 850px;           /* ajustá este valor para que quede a la misma altura que el logo */
+  right: 40px;          /* pegado a la derecha */
+  z-index: 1000;        /* para que quede encima de otros elementos */
+  cursor: pointer;      /* indica que es clickeable */
+}
+
+#joker-btn img {
+  width: 150px;
+  animation: spin 6s linear infinite;
+  transition: transform 0.3s;
+}
+
+#joker-btn:hover img {
+  transform: scale(1.1) rotate(360deg);
+}
+
+/* Animación Joker */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* CONTENEDOR DE MURCIÉLAGOS */
+#bat-container {
+  position: absolute;
+  top: 850px;          /* misma altura que el Joker */
+  right: 40px;         /* mismo sector a la derecha */
+  width: 150px;
+  height: 300px;
+  overflow: hidden;    /* evita que se salgan los murciélagos */
+  pointer-events: none;
+  display: none;       /* oculto inicialmente */
+  z-index: 900;        /* debajo del Joker */
+}
+
+/* MURCIÉLAGOS */
+.bat {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url('imagenes/imagenes/Murcilagos animacion.png') no-repeat center/contain;
+  top: -30px;          /* empieza fuera del contenedor */
+  animation: fall 1s linear infinite;
+}
+
+@keyframes fall {
+  0% { top: -30px; opacity: 0; }
+  20% { opacity: 1; }
+  100% { top: 200px; opacity: 0; }
+}
+
+
+/* Cada película */
+.pelicula {
+  text-align: center;
+  position: relative;
+}
+
+.pelicula > img {
+  width: 220px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.pelicula > img:hover {
+  transform: scale(1.20);
+}
+
+/* Personajes ocultos por defecto */
+.personajes {
+  display: none;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.personajes img {
+  width: 160px;        /* ancho fijo */
+  height: 160px;       /* alto fijo */
+  object-fit: cover;   /* ajusta y recorta la imagen sin deformarla */
+  border-radius: 10px; /* mantiene las esquinas redondeadas */
+}
+
+
+/* Mostrar personajes con hover */
+.pelicula:hover .personajes {
+  display: flex;
+}
+
+/* Alineación según la película */
+.izquierda .personajes {
+  align-items: flex-start; /* al margen izquierdo */
+}
+
+.centro .personajes {
+  align-items: center; /* centrados */
+}
+
+.derecha .personajes {
+  align-items: flex-end; /* al margen derecho */
+}
+
+.bloque-info {
+  margin-top: 60px;         /* separación uniforme entre secciones */
+  text-align: left;
+}
+
+.personajes {
+  display: none;
+  flex-direction: column;
+  align-items: center; /* centramos todos los elementos incluyendo el details */
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.personajes details {
+  width: 100%;         /* ocupa todo el ancho del contenedor */
+  text-align: center;  /* el texto del resumen queda centrado */
+}
+
+.pelicula:hover .personajes {
+  display: flex;
+}
+
+
+#Batman h2,
+#Batman h6 {
+  color: #FFD700;
+  font-size: 35px;
+  margin: 20px 0 20px 0;    /* espacio arriba y abajo */
+  text-align: left;
+}
+
+.bio-texto h3 {
+ color: #FFD700;
+  font-size: 35px;
+  margin: 20px 0 20px 0;    /* espacio arriba y abajo */
+  text-align: left;                  /* alineación a la izquierda */
+}
+
+/* Párrafos dentro de Batman */
+#Batman p {
+  margin-top: 20px;
+  color: white; 
+  font-size: 19px;
+  line-height: 1.5;
+  text-align: left;         /* alineados a la izquierda */
+}
+
+
+
+
+.bloque-info h4,
+.bloque-info h5 {
+  color: #FFD700;
+  font-size: 35px;
+  margin: 20px 0 20px 0;
+  text-align: left;
+}
+
+
+.personajes-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+max-width:800px;
+margin:0 auto;
+}
+
+
+.personaje{
+position:relative;
+overflow:hidden;
+border-radius:12px;
+cursor:pointer;
+}
+
+
+.personaje img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+border-radius:12px;
+transition:transform .3s ease;
+}
+
+
+.personaje:hover img{
+transform:scale(1.08);
+}
+
+
+.descripcion{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+background:rgba(0,0,0,0.8);
+color:#fff;
+padding:10px;
+text-align:center;
+opacity:0;
+transform:translateY(100%);
+transition:all .3s ease;
+font-size:9px;
+}
+
+
+.personaje:hover .descripcion{
+opacity:1;
+transform:translateY(0);
+}
+
+
+.nombre{
+margin:0;
+font-weight:bold;
+font-size:1rem;
+}
+
+
+/* Párrafos en los demás bloques */
+.bloque-info p {
+  margin-top: 10px;
+  color: white; 
+  font-size: 19px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Contenedor de biografía en dos columnas */
+
+.bio-contenedor {
+  display: flex;
+  margin-top: 200px;
+  align-items: stretch;   /* texto e imagen alineados arriba y abajo */
+  gap: 40px;              /* separación entre texto e imagen */
+  padding-left: 10px;     /* espacio desde el borde izquierdo de la página */
+  padding-right: 40px;    /* opcional: espacio desde el borde derecho */
+  
+}
+
+/* Texto de la biografía */
+.bio-texto {
+  flex: 1;                /* ocupa todo el espacio disponible */
+  text-align: left;
+}
+
+/* Imagen de la biografía */
+.bio-foto img {
+  max-width: 400px;       /* ajustá este valor según el tamaño que quieras */
+  height: 100%;           /* ocupa toda la altura del bloque de texto */
+  object-fit: cover;      /* recorta la imagen si sobra sin deformarla */
+  border-radius: 20px;    /* opcional */
+}
+
+/* Título de sección */
+.titulo-seccion {
+  color: #FFD700;
+  padding-top: 100px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* Contenedor de opiniones */
+.opiniones-contenedor {
+  display: flex;
+  flex-wrap: wrap;        /* que bajen a la siguiente línea si es necesario */
+  justify-content: center; /* centra horizontalmente */
+  gap: 40px;               /* espacio entre tarjetas */
+}
+
+/* Cada opinión */
+.opinion {
+  background-color: rgba(0,0,0,0.6); /* fondo semitransparente */
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;            /* ancho fijo */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; /* efecto hover */
+}
+
+.opinion:hover {
+  transform: translateY(-5px);          /* se eleva un poco */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* sombra más visible */
+}
+
+/* Foto del fan */
+.foto-fan {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Comentario */
+.comentario {
+  color: white;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+/* Nombre del fan */
+.nombre-fan {
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+/* Contenedor de la imagen */
+.bio-fotos {
+  flex: 0 0 120px;             /* Ancho fijo para la imagen */
+  display: flex;
+  justify-content: center;      /* Centra la imagen horizontalmente dentro del contenedor */
+  align-items: flex-start;      /* Alinea la imagen al tope del contenedor */
+}
+
+/* Imagen dentro del contenedor */
+.bio-fotos img {
+  width: 250px;                 /* Ajusta la imagen al ancho del contenedor */
+  height: auto;                /* Mantiene la proporción original */
+  object-fit: contain;         /* No corta la imagen */
+  display: block;
+}
+
+
+#Noticias {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #1c1c1c;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center; /* centra el título */
+}
+
+#Noticias h2 {
+  margin-bottom: 30px; /* espacio debajo del título */
+}
+
+
+/* Display flex solo para las noticias */
+#Noticias .contenedor {
+  display: flex;               
+  justify-content: center;     /* centra las noticias horizontalmente */
+  gap: 40px;                   /* espacio entre noticias */
+  flex-wrap: nowrap;           /* evita que se bajen a otra línea */
+}
+
+.noticia {
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px; /* ancho fijo para que estén alineadas */
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.noticia:hover {
+  transform: scale(1.05);
+  background-color: #3a3a3a;
+}
+
+.noticia img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.noticia h4 {
+  color: #FFD700; /* amarillo */
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.noticia p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Responsive: apila las noticias en vertical en pantallas pequeñas */
+@media (max-width: 650px) {
+  #Noticias .contenedor {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+footer {
+  background-color: #ffcc00; /* amarillo */
+  color: black;
+  border-top: 1px solid #ccc;
+  padding: 48px 0;
+  width: 100%; /* ocupa todo el ancho */
+  margin: 0;
+}
+
+footer .contenedor {
+  max-width: 1200px;  /* mantiene el contenido centrado */
+  margin: 0 auto;     /* centra el contenido */
+  padding: 0 20px;    /* espacio a los lados */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+footer img {
+    width: 80px;
+    height: auto;
+    margin: 0 10px;
+}
+
+.redes {
+    margin-top: 20px;
+}
+
+.redes a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+
+footer .datos {
+  display: flex;
+  flex-direction: center;
+  align-items: flex-start;
+  gap:100px;
+}
+
+footer .datos img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+footer .datos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer .datos ul li {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+footer .redes {
+  display: flex;
+  gap: 60px;
+  font-size: 24px;
+}
+
+footer .redes a {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+footer .redes a:hover {
+  color: #555;
+}
+
+footer .copyright {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 50px;
+  color: #777;
+}
+
+
+/* 📱 Celulares (hasta 767px) */
+@media (max-width: 767px) {
+  /* Banner */
+  .banner-texto .titulo {
+    font-size: 40px;
+  }
+  .banner-texto .subtitulo {
+    font-size: 20px;
+  }
+
+
+  #joker-btn {
+    top: 1100px;   /* 📌 baja el Joker más abajo */
+    right: 100px;   /* opcional: lo corrés un poco */
+  }
+
+  #bat-container {
+    top: 1100px;   /* 📌 misma altura que el Joker */
+    right: 100px;
+  }
+
+  /* Menú */
+  .navegacion {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Biografía */
+  .bio-contenedor {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .bio-foto img {
+    max-width: 90%;
+  }
+
+  /* Personajes */
+  .personajes-grid {
+    grid-template-columns: 1fr; /* una sola columna */
+  }
+
+  /* Opiniones */
+  .opinion {
+    width: 100%; /* que ocupen todo el ancho */
+  }
+
+  /* Películas */
+  #Peliculas .pelicula img {
+    max-width: 150px;
+  }
+}
+
+
+footer .contenedor {
+    flex-direction: column;   /* pasa de fila a columna */
+    justify-content: center;  /* centra los elementos */
+    align-items: center;
+    gap: 15px;                /* reduce el espacio entre bloques */
+    text-align: center;       /* centra el texto */
+  }
+
+  footer .datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .datos figure img {
+    max-width: 120px;    /* limita tamaño de la foto */
+    border-radius: 50%;  /* mantiene la forma redonda */
+  }
+
+  footer .datos ul {
+    padding: 0;
+    margin: 10px 0 0 0;
+    list-style: none;   /* quita viñetas si aparecen */
+  }
+
+  footer .redes {
+    display: flex;
+    gap: 20px;           /* espacio entre iconos */
+    justify-content: center;
+  }
+
+  footer .redes a {
+    font-size: 1.8rem;   /* agranda un poco los íconos para móvil */
+  }
+
+
+
+/* 📲 Tablets (768px a 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Banner */
+  .banner-texto .titulo {
+    font-size: 60px;
+  }
+  .banner-texto .subtitulo {
+    font-size: 28px;
+  }
+
+
+   #joker-btn {
+    top: 1250px;   /* 📌 baja el Joker más abajo */
+    right: 300px;   /* opcional: lo corrés un poco */
+  }
+
+  #bat-container {
+    top: 1250px;   /* 📌 misma altura que el Joker */
+    right: 300px;
+  }
+
+  /* Menú */
+  .navegacion {
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  /* Biografía */
+  .bio-contenedor {
+    flex-direction: row;
+    gap: 20px;
+    align-items:center;
+  }
+  .bio-foto img {
+    max-width: 250px;   /* límite para que no se estire demasiado */
+    height: auto;       /* mantiene proporción */
+    border-radius: 10px; /* opcional: esquinas redondeadas */
+    object-fit: cover;   /* asegura buen encuadre */
+  }
+
+  /* Personajes */
+  .personajes-grid {
+    grid-template-columns: repeat(2, 1fr); /* dos columnas */
+  }
+
+  /* Opiniones */
+  .opinion {
+    width: 45%; /* dos por fila */
+  }
+
+  /* Películas */
+  #Peliculas .pelicula img {
+    max-width: 180px;
+  }
+}
+
+
+/* 💻 Desktop (1024px o más) */
+@media (min-width: 1024px) {
+  /* Banner */
+  .banner-texto .titulo {
+    font-size: 80px;
+  }
+  .banner-texto .subtitulo {
+    font-size: 35px;
+  }
+
+  /* Menú */
+  .navegacion {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  /* Biografía */
+  .bio-contenedor {
+    flex-direction: row;
+    gap: 40px;
+  }
+  .bio-foto img {
+    max-width: 400px;
+  }
+
+  /* Personajes */
+  .personajes-grid {
+    grid-template-columns: repeat(2, 1fr); /* dos columnas fijas */
+  }
+
+  /* Opiniones */
+  .opinion {
+    width: 250px; /* tamaño fijo */
+  }
+}
+
